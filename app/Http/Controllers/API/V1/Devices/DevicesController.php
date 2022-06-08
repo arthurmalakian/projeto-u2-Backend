@@ -9,12 +9,18 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Devices\StoreRequest;
 use App\Http\Requests\Devices\UpdateRequest;
 
+/**
+ * @group Dispositivos
+ * 
+ * Rotas para gerenciamento de dispositivos
+ */
+
 class DevicesController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Todos dispositívos do usuário
+     * @authenticated
+     * @return JsonResponse
      */
     public function index()
     {
@@ -29,10 +35,15 @@ class DevicesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Criação de dispositívo
+     * @queryParam name string required Nome do dispositivo
+     * @queryParam type integer required Tipo do dispositivo (1 = ON/OFF, 2 = LED RGB, 3 = DISPOSITIVO DE BRILHO)
+     * @queryParam red integer Valor da cor vermelha (Caso seja LED)
+     * @queryParam green integer Valor da cor verde (Caso seja LED)
+     * @queryParam blue integer Valor da cor azul (Caso seja LED)
+     * @queryParam brightness integer Valor da luminosidade (Caso seja DISPOSITIVO DE BRILHO)
+     * @authenticated
+     * @return JsonResponse
      */
     public function store(StoreRequest $request)
     {
@@ -51,11 +62,11 @@ class DevicesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Dispositivo Individual
+     * @authenticated
+     * @return JsonResponse
      */
+
     public function show($id)
     {
         try{
@@ -71,11 +82,15 @@ class DevicesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Edição de dispositívo
+     * @queryParam name string required Nome do dispositivo
+     * @queryParam type integer required Tipo do dispositivo (1 = ON/OFF, 2 = LED RGB, 3 = DISPOSITIVO DE BRILHO)
+     * @queryParam red integer Valor da cor vermelha (Caso seja LED)
+     * @queryParam green integer Valor da cor verde (Caso seja LED)
+     * @queryParam blue integer Valor da cor azul (Caso seja LED)
+     * @queryParam brightness integer Valor da luminosidade (Caso seja DISPOSITIVO DE BRILHO)
+     * @authenticated
+     * @return JsonResponse
      */
     public function update(UpdateRequest $request, $id)
     {
@@ -94,10 +109,9 @@ class DevicesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Exclusão de dispositivo
+     * @authenticated
+     * @return JsonResponse
      */
     public function destroy($id)
     {
