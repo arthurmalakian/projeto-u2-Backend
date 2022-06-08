@@ -1,0 +1,99 @@
+name: Autenticação
+description: |-
+
+  Rotas para gerenciamento de login de usuários
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      title: Login
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters:
+      email:
+        name: email
+        description: 'Email do Usuário'
+        required: true
+        example: laborum
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Senha do Usuário'
+        required: true
+        example: ut
+        type: string
+        custom: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      title: Registro
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters:
+      name:
+        name: name
+        description: 'Nome do Usuário'
+        required: true
+        example: sit
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Email do Usuário'
+        required: true
+        example: ab
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Senha do Usuário'
+        required: true
+        example: consectetur
+        type: string
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'Confirmação da senha do Usuário'
+        required: true
+        example: optio
+        type: string
+        custom: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      title: Logout
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
